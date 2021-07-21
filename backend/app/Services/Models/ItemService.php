@@ -394,7 +394,7 @@
         case 'src':
           return $this->model->findBySrc($value)->first();
       }
-      DB::statement("select * from ". $type . " WHERE ".$mediaType . "=" . $value);
+      print_r(DB::select("select * from ". $type . " WHERE ".$mediaType . "=" . $value));
 
       return null;
     }
