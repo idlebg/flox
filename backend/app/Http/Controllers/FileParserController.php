@@ -42,10 +42,15 @@
      */
     public function receive(Request $request)
     {
+      $type = "title_strict";
+      if (isset($request->type)){
+        $type = $request->type;
+      }
+
       logInfo("FileParserController.receive called");
       $content = json_decode($request->getContent());
-
-      return $this->updateDatabase($content);
+      
+      return $this->updateDatabase($content, $type);
     }
 
     /**
@@ -60,8 +65,8 @@
      * @param $files
      * @return \Illuminate\Http\JsonResponse
      */
-    private function updateDatabase($files)
+    private function updateDatabase($files, $type)
     {
-      return $this->parser->updateDatabase($files);
+      return $this->parser->updateDatabase($files, $type);
     }
   }

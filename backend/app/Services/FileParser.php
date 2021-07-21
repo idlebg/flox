@@ -68,7 +68,7 @@
      * @param $files
      * @return \Illuminate\Http\JsonResponse
      */
-    public function updateDatabase($files)
+    public function updateDatabase($files, $typeFind)
     {
       logInfo("FileParser.updateDatabase");
       DB::beginTransaction();
@@ -82,6 +82,7 @@
           try {
             logInfo("Updating data");
             logInfo(print_r($item, 1));
+            $item->type = $typeFind;
             $this->handleStatus($item);
           } catch(\Exception $e) {
             logInfo($e->getMessage(), [Response::HTTP_BAD_REQUEST]);
@@ -126,7 +127,7 @@
     private function validateStore($item)
     {
       // See if file is already in our database.
-      if($found = $this->itemService->findBy('title_strict', $item->name, $this->itemCategory)) {
+      if($found = $this->itemService->findBy($item->type, $item->name, $this->itemCategory)) {
         return $this->store($item, $found->tmdb_id);
       }
 
