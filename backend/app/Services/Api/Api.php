@@ -47,7 +47,7 @@ abstract class Api
   public function handle(array $data)
   {
     logInfo('api data:', $data);
-
+    unserialize(serialize($data));
     $this->data = $data;
 
     if ($this->abortRequest()) {
