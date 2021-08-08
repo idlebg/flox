@@ -3,7 +3,7 @@
     <header>
       <div class="wrap">
         <router-link to="/" @click.native="refresh('home')" class="logo">
-          <img src="../../../public/assets/img/logo.png" alt="Flox" width="108" height="32">
+          <img src="../../../public/assets/img/logo.png" alt="Here I Go Killing Again" height="32">
         </router-link>
         
         <i @click="toggleMobileNavigation()" class="icon-hamburger"></i>
