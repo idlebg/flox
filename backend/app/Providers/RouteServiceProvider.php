@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -25,11 +26,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         //
         parent::boot();
-         /** @var UrlGenerator $url */
-        $url = $this->app['url'];
-
-        // Force the application URL
-        $url->forceRootUrl(config('app.url'));
+        URL::forceScheme('https');
+        URL::forceRootUrl("https://hereigokillingagain.com/");
         
     }
 
