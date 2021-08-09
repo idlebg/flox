@@ -6,7 +6,7 @@
   <meta id="token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 
-  <title>Here I Go Killing Again</title>
+  <title>INTERDIMENSIONAL Cable TV</title>
   <link rel="stylesheet" href="{{ url('assets/app.css') }}">
   <link href="{{ url('assets/favicon.ico?v=3') }}" rel="icon" type="image/x-icon">
 
