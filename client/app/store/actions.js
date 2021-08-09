@@ -47,9 +47,9 @@ export function setColorScheme({commit}, color) {
 
 export function setPageTitle({}, title = null) {
   if( ! title) {
-    document.title = 'Flox';
+    document.title = 'INTERDIMENSIONAL Cable TV';
   } else {
-    document.title = `${title} - Flox`;
+    document.title = `${title} - INTERDIMENSIONAL Cable TV`;
   }
 }
 
